@@ -1,6 +1,5 @@
 package com.freeflowgfx.bonsai
 
-import androidx.appcompat.app.AppCompatActivity
 import android.annotation.SuppressLint
 import android.os.Build
 import android.os.Bundle
@@ -10,8 +9,9 @@ import android.view.View
 import android.view.WindowInsets
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import com.freeflowgfx.bonsai.databinding.ActivityFullscreenBinding
-import java.util.*
+import java.util.Timer
 import kotlin.concurrent.schedule
 
 /**
@@ -36,11 +36,11 @@ class FullscreenActivity : AppCompatActivity() {
             // at compile-time and do nothing on earlier devices.
             fullscreenContent.systemUiVisibility =
                 View.SYSTEM_UI_FLAG_LOW_PROFILE or
-                        View.SYSTEM_UI_FLAG_FULLSCREEN or
-                        View.SYSTEM_UI_FLAG_LAYOUT_STABLE or
-                        View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY or
-                        View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION or
-                        View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                View.SYSTEM_UI_FLAG_FULLSCREEN or
+                View.SYSTEM_UI_FLAG_LAYOUT_STABLE or
+                View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY or
+                View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION or
+                View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
         }
     }
     private val showPart2Runnable = Runnable {
@@ -95,7 +95,7 @@ class FullscreenActivity : AppCompatActivity() {
 
         var cnt = 0
 
-        timer.schedule(delay=0, period=1000) {
+        timer.schedule(delay = 0, period = 1000) {
             cnt++
             fullscreenContent.text = "$cnt"
         }
@@ -136,7 +136,7 @@ class FullscreenActivity : AppCompatActivity() {
         } else {
             fullscreenContent.systemUiVisibility =
                 View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or
-                        View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
         }
         isFullscreen = true
 
